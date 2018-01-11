@@ -23,7 +23,7 @@ public:
                double mutationChance = 0.05, uint topSave = 0);
 
 private:
-    PartyFactory * m_partyFactory ;
+    PartyFactory * m_partyFactory;
     DungeonFactory * m_dungeonFactory;
     uint m_parties;
     uint m_generations;

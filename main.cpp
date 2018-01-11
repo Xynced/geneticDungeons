@@ -34,7 +34,7 @@ int main(int argc, char *argv[])
 //    qDebug() << d9->name() << d9->toString();
 //    qDebug() << d10->name() << d10->toString();
 
-    qDebug() << quint64(quint64(qrand() % UINT_MAX) << 32 | (qrand() % UINT_MAX)) << UINT64_MAX;
+//    qDebug() << quint64(quint64(qrand() % UINT_MAX) << 32 | (qrand() % UINT_MAX)) << UINT64_MAX;
 
     QQmlApplicationEngine engine;
     engine.load(QUrl(QStringLiteral("qrc:/main.qml")));

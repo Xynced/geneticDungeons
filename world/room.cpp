@@ -22,3 +22,10 @@ void Room::setRoomModifier(const RoomModifier &roomModifier)
 {
     m_roomModifier = roomModifier;
 }
+
+QJsonObject Room::toJson() const
+{
+    QJsonObject room;
+    room.insert("modifier", roomModifier.toString());
+    return room;
+}

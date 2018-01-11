@@ -7,6 +7,8 @@ class RoomModifier
 {
 public:
     RoomModifier();
+
+    QString toString() const {return "Empty";}
 };
 
 #endif // ROOMMODIFIER_H

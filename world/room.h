@@ -3,6 +3,7 @@
 
 #include <QtCore/QObject>
 #include <QtCore/QList>
+#include <QtCore/QJsonObject>
 
 #include "characters/party.h"
 
@@ -22,6 +23,8 @@ public:
 
     RoomModifier roomModifier() const;
     void setRoomModifier(const RoomModifier &roomModifier);
+
+    virtual QJsonObject toJson() const;
 
 private:
     RoomModifier m_roomModifier;

@@ -49,3 +49,14 @@ Party * Dungeon::party() const
 {
     return m_party;
 }
+
+QJsonObject Dungeon::toJson() const
+{
+    QJsonObject dungeon;
+    QJsonArray rooms;
+    foreach(Room * room, m_rooms) {
+        rooms.append(room->toJson());
+    }
+    dungeon.insert("rooms", rooms);
+    return dungeon;
+}

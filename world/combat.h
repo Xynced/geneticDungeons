@@ -14,9 +14,13 @@ public:
     virtual bool start(Party *party) {return Room::start(party);}
     virtual void reward(Party *party) {Room::reward(party);}
 
+    virtual QString toString() const;
+
 private:
     // Every different mob party will be enemy for each other
     QList<MobParty *> m_mobs;
+
+    QString mobsToSting() const;
 };
 
 #endif // COMBAT_H

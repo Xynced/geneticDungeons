@@ -3,6 +3,8 @@
 
 #include <QtCore/QObject>
 #include <QtCore/QList>
+#include <QtCore/QJsonObject>
+#include <QtCore/QJsonArray>
 
 #include "world/room.h"
 #include "characters/party.h"
@@ -24,7 +26,7 @@ public:
 
     Party * party() const;
 
-    QString toString() {return ""; /*TO DO!!!*/}
+    virtual QJsonObject toJson() const;
 
 private:
     QList<Room *> m_rooms;
