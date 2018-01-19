@@ -2,9 +2,11 @@
 #define COMBAT_H
 
 #include <QtCore/QObject>
+#include <QtCore/QJsonArray>
 
 #include "world/room.h"
 #include "characters/mobparty.h"
+
 
 class Combat : public Room
 {
@@ -14,13 +16,13 @@ public:
     virtual bool start(Party *party) {return Room::start(party);}
     virtual void reward(Party *party) {Room::reward(party);}
 
-    virtual QString toString() const;
+    virtual QJsonObject toJson() const;
 
 private:
     // Every different mob party will be enemy for each other
     QList<MobParty *> m_mobs;
 
-    QString mobsToSting() const;
+    QJsonArray mobsToJson() const;
 };
 
 #endif // COMBAT_H

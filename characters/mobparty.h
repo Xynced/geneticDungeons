@@ -3,6 +3,7 @@
 
 #include <QtCore/QObject>
 #include <QtCore/QList>
+#include <QtCore/QJsonObject>
 
 #include "characters/character.h"
 
@@ -20,6 +21,8 @@ public:
 
     bool active() const;
     void setActive(bool active);
+
+    QJsonObject toJson() const;
 
 private:
     QList<Character *> m_characters;

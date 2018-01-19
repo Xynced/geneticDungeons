@@ -60,3 +60,8 @@ void Character::setGeneration(const uint &generation)
     m_generation = generation;
 }
 
+QJsonObject Character::toJson() const
+{
+    QJsonObject character;
+    return character;
+}

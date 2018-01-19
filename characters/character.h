@@ -45,6 +45,8 @@ public:
     uint generation() const;
     void setGeneration(const uint &generation);
 
+    QJsonObject toJson() const;
+
 private:
     AI* m_ai;
     Controller* m_controller;

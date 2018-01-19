@@ -1,5 +1,7 @@
 #include "mobparty.h"
 
+#include <QtCore/QJsonArray>
+
 MobParty::MobParty(const QList<Character *> &characters) :
     m_characters(characters),
     m_active(true)
@@ -36,4 +38,16 @@ bool MobParty::active() const
 void MobParty::setActive(bool active)
 {
     m_active = active;
+}
+
+QJsonObject MobParty::toJson() const
+{
+    QJsonObject mobParty;
+    mobParty.insert("is_active", m_active);
+    QJsonArray mobsArray;
+    foreach(Character * character, m_characters) {
+        mobsArray.append(character->toJson());
+    }
+    mobParty.insert("mobs", mobsArray);
+    return mobParty;
 }

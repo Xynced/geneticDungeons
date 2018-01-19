@@ -7,7 +7,7 @@ Encounter::Encounter()
 
 QJsonObject Encounter::toJson() const
 {
-    QJsonObject result = Room::toJson();
-    result.insert("type", "Encounter");
-    return result;
+    QJsonObject encounter = Room::toJson();
+    encounter.insert("type", "Encounter");
+    return encounter;
 }

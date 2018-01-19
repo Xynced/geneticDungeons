@@ -5,17 +5,19 @@ Combat::Combat(const QList<MobParty *> &mobs)
     m_mobs = mobs;
 }
 
-QString Combat::toString() const
+QJsonObject Combat::toJson() const
 {
-    return QString("{Combat:%1:%2}").arg(m_roomModifier.toString()).arg(mobsToSting());
+    QJsonObject combat = Room::toJson();
+    combat.insert("type", "Combat");
+    combat.insert("enemies", mobsToJson());
+    return combat;
 }
 
-QString Combat::mobsToSting() const
+QJsonObject Combat::mobsToJson() const
 {
-    QString result;
+    QJsonArray mobsArray;
     foreach(MobParty * mobParty, m_mobs) {
-        result += QString("%1; ").arg(mobParty->toString());
+        mobsArray.append(mobParty->toJson());
     }
-    result.chop(2);
-    return result;
+    return mobsArray;
 }
